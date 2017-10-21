@@ -1,7 +1,7 @@
-FROM ruby:2.3-alpine
+FROM ruby:2.3-slim
 
-RUN apk update
-RUN apk add build-base
+RUN apt-get update
+RUN apt-get install -y build-essential
 RUN gem install backup
 RUN backup generate:config --config-file /root/Backup/config.rb
-RUN apk del build-base
+RUN apt-get clean
