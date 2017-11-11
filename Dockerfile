@@ -6,6 +6,6 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" >> /etc
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 RUN apt-get update
 RUN apt-get install -y build-essential mariadb-client postgresql-client-10
-RUN gem install backup
+RUN gem install backup -v '4.2.0'
 RUN backup generate:config --config-file /root/Backup/config.rb
 RUN apt-get clean
